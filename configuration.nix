@@ -10,7 +10,6 @@
 
 let
   #godot-beta = import ./Modules/NixOS/Godot/godot-beta.nix { inherit pkgs; };
-  #kando = import ./Modules/NixOS/Kando/kando.nix { inherit pkgs; };
 in
 {
   imports = [ # Include the results of the hardware scan.
