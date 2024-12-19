@@ -1,0 +1,38 @@
+#window {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+box#main {
+  border-radius: 8px;
+
+  :hover {
+    border-radius: 8px;
+  }
+}
+
+list#main {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 8px;
+}
+
+list#plugin {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+label#match-desc {
+  font-size: 10px;
+  border-width: 2px;
+  border-color: #94e2d5;
+  padding: 8px;
+}
+
+box#match {
+  border-radius: 8px;
+}
+
+label#plugin {
+  font-size: 14px;
+  border-width: 2px;
+  border-color: #94e2d5;
+  padding: 8px;
+}
