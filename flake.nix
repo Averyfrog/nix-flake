@@ -3,9 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #nixpkgs.url = "https://github.com/Guanran928/nixpkgs/commits/nixos-unstable";
-    
-    #nixpkgs_patched.url = "github:nixos/nixpkgs/468a37e6ba01c45c91460580f345d48ecdb5a4db";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,7 +23,7 @@
     };
 
     nixcord = {
-      url = "github:kaylorben/nixcord";
+      url = "github:kaylorben/nixcord/40dafe281bdadedc894879f8671aef19af6bafd6";
     };
 
     stylix = {
@@ -42,17 +39,9 @@
       url = "github:aylur/astal";
     };
 
-    textfox = {
-      url = "github:adriankarlen/textfox";
-    };
-
     anyrun = {
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    matugen = {
-      url = "github:/InioX/Matugen/ab0a12f826c194003c69ee2e3d700245fb54f875";
     };
 
   };
@@ -63,10 +52,10 @@
       #pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations.avery = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.Fish-2 = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [ 
-            ./configuration.nix
+            ./Systems/Fish-2/configuration.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
             inputs.nixvim.nixosModules.nixvim

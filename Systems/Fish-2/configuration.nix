@@ -291,7 +291,7 @@ in
     lightly-qt
     lxqt.lxqt-policykit
     openrgb-with-all-plugins
-    glfw-wayland-minecraft
+    glfw-wayland
     direnv
     nautilus
     gnome-photos
@@ -305,7 +305,6 @@ in
     xsettingsd
 
     hyprlock
-    hyprnome
     hyprpicker
     xwayland
     inputs.pyprland.packages.${system}.pyprland
@@ -409,6 +408,8 @@ in
     };
   };
 
+  security.pam.services.hyprlock = {};
+
 
   #system.replaceRuntimeDependencies = [
   #  ({ original = pkgs.mesa; replacement = (import /srv/nixpkgs-mesa { }).pkgs.mesa; })
@@ -446,6 +447,14 @@ in
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    /*package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "560.28.03";
+      sha256_64bit = "sha256-martv18vngYBJw1IFUCAaYr+uc65KtlHAMdLMdtQJ+Y=";
+      sha256_aarch64 = "sha256-k7cI3ZDlKp4mT46jMkLaIrc2YUx1lh1wj/J4SVSHWyk=";
+      openSha256 = "sha256-k7cI3ZDlKp4mT46jMkLaIrc2YUx1lh1wj/J4SVSHWyk=";
+      settingsSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      persistencedSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+    };*/
   };
 
   # Some programs need SUID wrappers, can be configured further or are
