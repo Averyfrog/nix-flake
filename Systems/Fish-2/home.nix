@@ -1,10 +1,8 @@
-{ inputs, config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
-    ./Modules/Home-Manager/starlessHome.nix
-    inputs.nixcord.homeManagerModules.nixcord
-    inputs.textfox.homeManagerModules.default
+    ./../../Modules/Home-Manager/allHomeInputs.nix
   ];
   
   # user info
@@ -12,11 +10,6 @@
     username = "avery";
     homeDirectory = "/home/avery";
     stateVersion = "23.11"; # Dont change this you dumbass avery.
-  };
-
-  textfox = {
-    enable = false;
-    profile = "default";
   };
 
   programs.firefox = {
@@ -29,8 +22,6 @@
       };
     };
   };
-  
-
 
   programs.home-manager.enable = true;
 }

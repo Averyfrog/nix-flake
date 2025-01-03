@@ -57,10 +57,8 @@
           modules = [ 
             ./Systems/Fish-2/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
             inputs.nixvim.nixosModules.nixvim
             {environment.systemPackages = [ anyrun.packages.${system}.anyrun ];}
-            #{environment.systemPackages = [ inputs.matugen.packages.${system}.default ];}
           ];
         };
     };

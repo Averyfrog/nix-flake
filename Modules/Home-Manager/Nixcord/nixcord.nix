@@ -1,6 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 
 {
+  imports = [
+    inputs.nixcord.homeManagerModules.nixcord
+  ];
+
   programs.nixcord = {
     enable = true;
     quickCss = ''@import url("https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/catppuccin-mocha.theme.css");'';  # quickCSS file

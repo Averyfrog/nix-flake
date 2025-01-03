@@ -64,7 +64,7 @@ in
 
 
 
-  networking.hostName = "avery"; # Define your hostname.
+  networking.hostName = "Fish-2"; # Define your hostname.
   # networking.wireless.enable = true;
 
 
@@ -259,7 +259,6 @@ in
     swww
     waybar
     libsForQt5.dolphin
-    pcmanfm
     nwg-look
     grim
     slurp
@@ -328,10 +327,9 @@ in
     nixd
     alejandra
 
-    inputs.matugen.packages.${system}.default
     inputs.astal.packages.${system}.io
     inputs.astal.packages.${pkgs.system}.notifd
-    (callPackage ./Modules/NixOS/Astal/config { inherit inputs; })
+    (callPackage ./../../Modules/NixOS/Astal/config { inherit inputs; })
 
     (catppuccin-sddm.override {
       flavor = "mocha";
@@ -407,8 +405,6 @@ in
       treesitter.enable = true;
     };
   };
-
-  security.pam.services.hyprlock = {};
 
 
   #system.replaceRuntimeDependencies = [
