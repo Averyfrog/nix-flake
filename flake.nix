@@ -44,6 +44,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    config-manager = {
+      url = "github:averyfrog/config-manager";
+    };
+
   };
 
   outputs = {self, nixpkgs, anyrun, ... }@inputs:

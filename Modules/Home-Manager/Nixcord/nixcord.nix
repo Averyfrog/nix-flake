@@ -7,7 +7,7 @@
 
   programs.nixcord = {
     enable = true;
-    quickCss = ''@import url("https://raw.githubusercontent.com/refact0r/system24/refs/heads/main/theme/flavors/catppuccin-mocha.theme.css");'';  # quickCSS file
+    quickCss = ''@import "/home/avery/.config/vesktop/settings/colors-discord.css";'';  # quickCSS file
     vesktop.enable = true;
     discord.enable = false;
     config = {

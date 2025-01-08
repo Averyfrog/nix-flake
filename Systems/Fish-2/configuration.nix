@@ -302,12 +302,15 @@ in
     cliphist
     imagemagick
     xsettingsd
+    gnome-settings-daemon
+    glib
 
     hyprlock
     hyprpicker
     xwayland
     inputs.pyprland.packages.${system}.pyprland
-
+    
+    cava
     pipes
     gh-screensaver
     wf-recorder
@@ -327,6 +330,7 @@ in
     nixd
     alejandra
 
+    inputs.config-manager.packages.${system}.default
     inputs.astal.packages.${system}.io
     inputs.astal.packages.${pkgs.system}.notifd
     (callPackage ./../../Modules/NixOS/Astal/config { inherit inputs; })
