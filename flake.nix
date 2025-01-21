@@ -23,16 +23,15 @@
     };
 
     nixcord = {
-      url = "github:kaylorben/nixcord/40dafe281bdadedc894879f8671aef19af6bafd6";
+      url = "github:kaylorben/nixcord";
     };
 
     stylix = {
       url = "github:danth/stylix";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    nvf = {
+      url = "github:notashelf/nvf";
     };
 
     astal = {
@@ -50,7 +49,7 @@
 
   };
 
-  outputs = {self, nixpkgs, anyrun, ... }@inputs:
+  outputs = {self, nixpkgs, anyrun, nvf, ... }@inputs:
     let
       system = "x86_64-linux";
       #pkgs = nixpkgs.legacyPackages.${system};
@@ -61,7 +60,6 @@
           modules = [ 
             ./Systems/Fish-2/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            inputs.nixvim.nixosModules.nixvim
             {environment.systemPackages = [ anyrun.packages.${system}.anyrun ];}
           ];
         };

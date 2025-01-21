@@ -15,6 +15,7 @@ in
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ./../../Modules/NixOS/neovim.nix
   ];
 
   home-manager = {
@@ -390,24 +391,6 @@ in
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-  };
-
-  programs.nixvim = {
-    enable = true;
-
-    colorschemes.gruvbox.enable = true;
-    
-    globalOpts = {
-      number = true;
-
-      shiftwidth = 2;
-    };
-
-    plugins = {
-      lualine.enable = true;
-      rustaceanvim.rustAnalyzerPackage.enable = true;     
-      treesitter.enable = true;
-    };
   };
 
 

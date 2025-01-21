@@ -14,6 +14,8 @@
       bold_italic_font = "Roboto Mono Bold Italic";
       font_size = "10";
       cursor_shape = "beam";
+      cursor_trail = 3;
+      cursor_trail_decay = "0.1 0.5";
 
       window_padding_width = 4;
     };
