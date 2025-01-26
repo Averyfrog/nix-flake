@@ -36,7 +36,7 @@
         };
 
         options = {
-         tabstop = 2;
+          tabstop = 2;
           shiftwidth = 2;
         };
 
@@ -47,6 +47,9 @@
           nix.enable = true;
           ts.enable = true;
           rust.enable = true;
+          wgsl.enable = true;
+          vala.enable = true;
+          css.enable = true;
         };
 
         keymaps = [
@@ -57,6 +60,10 @@
             silent = true;
             desc = "Opens file finder";
           }
+        ];
+
+        extraLuaFiles = [
+          ./neovim-extra.lua
         ];
       };
     };

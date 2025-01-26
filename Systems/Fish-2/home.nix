@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./../../Modules/Home-Manager/allHomeInputs.nix
   ];
   
   # user info

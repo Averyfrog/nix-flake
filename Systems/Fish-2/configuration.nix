@@ -8,14 +8,14 @@
 */
 { config, pkgs, inputs, lib, ... }:
 
-let
-  #godot-beta = import ./Modules/NixOS/Godot/godot-beta.nix { inherit pkgs; };
-in
 {
   imports = [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-      ./../../Modules/NixOS/neovim.nix
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    ./../../Modules/text-editor/neovim.nix
+    ./../../Modules/terminal/kitty.nix
+    ./../../Modules/environment/hyprland.nix
+    ./../../Modules/Home-Manager/Nixcord/nixcord.nix
   ];
 
   home-manager = {
@@ -193,12 +193,6 @@ in
   ];
 
   programs = {
-    
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -309,7 +303,6 @@ in
     hyprlock
     hyprpicker
     xwayland
-    inputs.pyprland.packages.${system}.pyprland
     
     cava
     pipes
@@ -326,15 +319,13 @@ in
     godot_4
 
     logseq
+    arduino-ide
 
     openssl
     nixd
     alejandra
 
     inputs.config-manager.packages.${system}.default
-    inputs.astal.packages.${system}.io
-    inputs.astal.packages.${pkgs.system}.notifd
-    (callPackage ./../../Modules/NixOS/Astal/config { inherit inputs; })
 
     (catppuccin-sddm.override {
       flavor = "mocha";
@@ -344,7 +335,6 @@ in
       loginBackground = true;
     })
 
-  ] ++ [
   ];
 
   services.udev = {
