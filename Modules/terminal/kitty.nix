@@ -27,4 +27,6 @@
       };
     }
   ];
+
+  programs.fish.enable = true;
 }

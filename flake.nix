@@ -47,6 +47,11 @@
       url = "github:averyfrog/config-manager";
     };
 
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {self, nixpkgs, anyrun, nvf, ... }@inputs:

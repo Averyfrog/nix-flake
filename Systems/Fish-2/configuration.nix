@@ -6,64 +6,30 @@
                     |___/                              
 
 */
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./boot.nix
     inputs.home-manager.nixosModules.default
+    
     ./../../Modules/text-editor/neovim.nix
+    ./../../Modules/text-editor/emacs.nix
     ./../../Modules/terminal/kitty.nix
     ./../../Modules/environment/hyprland.nix
-    ./../../Modules/Home-Manager/Nixcord/nixcord.nix
+    ./../../Modules/software/discord.nix
+    ./../../Modules/session-manager/tuigreet.nix
   ];
 
   home-manager = {
     # Pass inputs to home-manager modules.
     extraSpecialArgs = { inherit inputs; };
     users.avery = import ./home.nix;
-    backupFileExtension =  "fsaf";
+    backupFileExtension =  "homebackup";
     useGlobalPkgs = true;
     useUserPackages = true;
   };
-
-/*
- ___           _   
-| _ ) ___  ___| |_ 
-| _ \/ _ \/ _ \  _|
-|___/\___/\___/\__|
-
-*/
-
-  boot = {
-
-    # Kernel shit i dont understand.
-    kernelPackages = pkgs.linuxPackages;
-    kernelParams = ["quiet"
-    "nvidia-drm.modeset=1"
-    "nvidia-drm.fbdev=1"
-    ];
-
-    # Use the systemd-boot EFI boot loader.
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot";
-    };
-    initrd.systemd.enable = true;
-
-    # Loading screen theme.
-    plymouth = {
-      enable = true;
-      /*themePackages = [
-        pkgs.catppuccin-plymouth
-      ];
-      theme = "catppuccin-macchiato";*/
-    };
-
-  };
-
-
 
   networking.hostName = "Fish-2"; # Define your hostname.
   # networking.wireless.enable = true;
@@ -113,12 +79,6 @@
 
   console.keyMap = "uk";
 
-  services.displayManager.sddm = lib.mkForce {
-    enable = true;
-    theme = "catppuccin-mocha";
-    package = pkgs.kdePackages.sddm;
-  };
-
   services = {
 
     xserver = {
@@ -143,7 +103,7 @@
       pulse.enable = true;
       jack.enable = true;
       wireplumber.enable = true;
-  };
+    };
 
   };
   # Configure console keymap
@@ -171,6 +131,7 @@
     isNormalUser = true;
     description = "Avery";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = [
     ];
   };
@@ -265,8 +226,12 @@
     obs-studio
     gparted
     vintagestory
+    superTuxKart
+    ldtk
+    xclicker
 
     obsidian
+    folio
     aseprite
     lutris
     prismlauncher
@@ -315,6 +280,7 @@
     mesa
     nvidia-vaapi-driver
     vulkan-tools
+    cudaPackages.cudatoolkit
 
     godot_4
 
@@ -324,17 +290,10 @@
     openssl
     nixd
     alejandra
-
+    
+    inputs.zen-browser.packages.${pkgs.system}.default
+    
     inputs.config-manager.packages.${system}.default
-
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      font  = "Noto Sans";
-      fontSize = "9";
-      #background = "${./wallpaper.png}";
-      loginBackground = true;
-    })
-
   ];
 
   services.udev = {
@@ -419,7 +378,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     /*package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
       version = "560.28.03";
       sha256_64bit = "sha256-martv18vngYBJw1IFUCAaYr+uc65KtlHAMdLMdtQJ+Y=";

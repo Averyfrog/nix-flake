@@ -1,8 +1,12 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
     inputs.nvf.nixosModules.default
+  ];
+
+  environment.systemPackages = with pkgs; [
+    neovide
   ];
 
   programs.nvf = {

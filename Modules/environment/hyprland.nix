@@ -36,5 +36,6 @@
     inputs.astal.packages.${pkgs.system}.io
     inputs.astal.packages.${pkgs.system}.notifd
     (callPackage ./hyprland-elements/desktop-shell { inherit inputs; })
+    uwsm
   ];
 }
