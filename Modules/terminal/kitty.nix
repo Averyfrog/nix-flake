@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home-manager.sharedModules = [
@@ -29,4 +29,10 @@
   ];
 
   programs.fish.enable = true;
+
+  fonts = {
+    packages = with pkgs; [
+      roboto-mono
+    ];
+  };
 }

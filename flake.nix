@@ -52,6 +52,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+    };
+
   };
 
   outputs = {self, nixpkgs, anyrun, nvf, ... }@inputs:
@@ -61,12 +65,20 @@
     in
     {
       nixosConfigurations.Fish-2 = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [ 
-            ./Systems/Fish-2/configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            {environment.systemPackages = [ anyrun.packages.${system}.anyrun ];}
-          ];
-        };
+      	specialArgs = {inherit inputs;};
+        modules = [ 
+          ./Systems/Fish-2/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          {environment.systemPackages = [ anyrun.packages.${system}.anyrun ];}
+        ];
+      };
+      nixosConfigurations.Anomalocaris = nixpkgs.lib.nixosSystem {
+      	specialArgs = {inherit inputs;};
+        modules = [
+          ./Systems/Anomalocaris/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          {environment.systemPackages = [ anyrun.packages.${system}.anyrun ];}
+        ];
+      };
     };
 }

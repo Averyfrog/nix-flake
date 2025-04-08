@@ -292,8 +292,8 @@
     alejandra
     
     inputs.zen-browser.packages.${pkgs.system}.default
-    
     inputs.config-manager.packages.${system}.default
+    
   ];
 
   services.udev = {
