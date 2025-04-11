@@ -11,6 +11,8 @@
     xwayland.enable = true;
   };
 
+  environment.variables.XCURSOR_SIZE = "10";
+
   home-manager.sharedModules = [
     {
       wayland.windowManager.hyprland = {
@@ -19,6 +21,14 @@
         systemd.variables = ["--all"];
         # set the flake package
         #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        
+        settings = {
+          "$mod" = "SUPER";
+
+          bind = [
+            "$mod, S, exec, ~/.config/hypr/scripts/screenshot.sh"
+          ];
+        };
 
         extraConfig = builtins.readFile ./hyprland-elements/hyprland-extra-config.conf;
 
@@ -27,6 +37,11 @@
           # ...
         ];
       };  
+
+      home.file.".config/hypr/scripts" = {
+        source = ./hyprland-elements/scripts;
+        recursive = true;
+      };
     }
   ];
   

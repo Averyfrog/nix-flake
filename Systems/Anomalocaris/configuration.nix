@@ -15,6 +15,7 @@
       ./../../Modules/text-editor/neovim.nix
       ./../../Modules/terminal/kitty.nix
       ./../../Modules/software/discord.nix
+      ./../../Modules/environment/hyprland.nix
     ];
 
   # Bootloader.
