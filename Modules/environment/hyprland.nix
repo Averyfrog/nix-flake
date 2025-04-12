@@ -52,5 +52,13 @@
     
     inputs.astal.packages.${pkgs.system}.io
     inputs.astal.packages.${pkgs.system}.notifd
+
+    arrpc
+    swww
+  ];
+
+  fonts.packages = with pkgs; [
+    material-icons
+    jost
   ];
 }
