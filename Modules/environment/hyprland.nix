@@ -42,6 +42,11 @@
         source = ./hyprland-elements/scripts;
         recursive = true;
       };
+
+      home.file."Pictures/wallpapers" = {
+        source = ./../../Wallpapers;
+        recursive = true;
+      };
     }
   ];
   
