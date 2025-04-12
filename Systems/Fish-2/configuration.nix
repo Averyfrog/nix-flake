@@ -319,9 +319,6 @@
       roboto-mono
       jetbrains-mono
       jost
-      noto-fonts-emoji
-      noto-fonts-emoji-blob-bin
-      meslo-lgs-nf
       material-symbols
     ];
     fontDir.enable = true;

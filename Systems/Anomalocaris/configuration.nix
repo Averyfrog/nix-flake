@@ -156,6 +156,16 @@
     inputs.config-manager.packages.${system}.default
   ];
 
+  fonts = {
+    packages = with pkgs; [
+      roboto-mono
+      jetbrains-mono
+      jost
+      material-symbols
+    ];
+    fontDir.enable = true;
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

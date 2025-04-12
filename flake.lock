@@ -1304,11 +1304,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1744405739,
-        "narHash": "sha256-NlI6dO1EUI07oVTjUj2msvGV4rk/lPQTz5yhX5lnMWA=",
+        "lastModified": 1744437555,
+        "narHash": "sha256-V2jDahZZw/szhwV2im/8Uf1jzr0s2gNvNsIzJCrc0yQ=",
         "owner": "averyfrog",
         "repo": "star-shell",
-        "rev": "5388c56f0f7e10073f3ae2eefd12aecb9fb6e3f2",
+        "rev": "5a0034b740d5a6f8a015955ce097215e16363762",
         "type": "github"
       },
       "original": {
