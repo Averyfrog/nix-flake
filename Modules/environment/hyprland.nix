@@ -46,11 +46,11 @@
   ];
   
   environment.systemPackages = with pkgs; [
+    inputs.star-shell.packages.${pkgs.system}.default
+
     inputs.pyprland.packages.${pkgs.system}.pyprland
     
     inputs.astal.packages.${pkgs.system}.io
     inputs.astal.packages.${pkgs.system}.notifd
-    (callPackage ./hyprland-elements/desktop-shell { inherit inputs; })
-    uwsm
   ];
 }

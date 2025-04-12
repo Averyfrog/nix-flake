@@ -47,6 +47,10 @@
       url = "github:averyfrog/config-manager";
     };
 
+    star-shell = {
+      url = "github:averyfrog/star-shell";
+    };
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
