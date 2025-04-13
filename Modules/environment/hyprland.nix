@@ -60,6 +60,9 @@
 
     arrpc
     swww
+    grim
+    slurp
+    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [

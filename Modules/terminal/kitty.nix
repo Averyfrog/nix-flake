@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+
   home-manager.sharedModules = [
     {
       programs.kitty = {
@@ -38,6 +39,8 @@
       fi
     '';
   };
+
+  environment.systemPackages = with pkgs; [ cava ];
 
   fonts = {
     packages = with pkgs; [
