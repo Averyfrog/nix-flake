@@ -15,7 +15,6 @@
     inputs.home-manager.nixosModules.default
     
     ./../../Modules/text-editor/neovim.nix
-    ./../../Modules/text-editor/emacs.nix
     ./../../Modules/terminal/kitty.nix
     ./../../Modules/environment/hyprland.nix
     ./../../Modules/software/discord.nix
@@ -221,7 +220,6 @@
     swaynotificationcenter
     libnotify
     killall
-    monitor
     xorg.xkill
     obs-studio
     gparted
@@ -295,14 +293,6 @@
     inputs.config-manager.packages.${system}.default
     
   ];
-
-  services.udev = {
-    enable = true;
-    extraRules = builtins.fetchurl { # Makes OpenRGB work!
-      url = "https://openrgb.org/releases/release_0.9/60-openrgb.rules";
-      sha256 = "sha256:0f5bmz0q8gs26mhy4m55gvbvcyvd7c0bf92aal4dsyg9n7lyq6xp";
-    }; 
-  };
 
   nixpkgs.overlays = [ (final: prev: { # Makes vintagestory mouse work!
     vintagestory = prev.vintagestory.overrideAttrs (old: {

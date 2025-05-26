@@ -1,11 +1,8 @@
 { inputs, pkgs, ... }:
 
 {
-  
   home-manager.sharedModules = [
     {
-      imports = [inputs.anyrun.homeManagerModules.default];
-
       programs.anyrun = {
         enable = true;
         config = {

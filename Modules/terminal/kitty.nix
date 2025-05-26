@@ -10,10 +10,10 @@
           enable_audio_bell = false;
           confirm_os_window_close = -0;
 
-          font_family = "Roboto Mono";
-          bold_font = "Roboto Mono Bold";
-          italic_font = "Roboto Mono Italic";
-          bold_italic_font = "Roboto Mono Bold Italic";
+          font_family = "Iosevka Nerd Font Mono";
+          bold_font = "Iosevka Nerd Font Mono Bold";
+          italic_font = "Iosevka Nerd Font Mono Italic";
+          bold_italic_font = "Iosevka Nerd Font Mono Bold Italic";
           font_size = "10";
           cursor_shape = "beam";
           cursor_trail = 3;
@@ -45,6 +45,7 @@
   fonts = {
     packages = with pkgs; [
       roboto-mono
+      nerd-fonts.iosevka-term
     ];
   };
 }

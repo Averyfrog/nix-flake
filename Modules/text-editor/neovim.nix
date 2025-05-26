@@ -50,6 +50,7 @@
 
           nix.enable = true;
           ts.enable = true;
+          php.enable = true;
           rust.enable = true;
           wgsl.enable = true;
           vala.enable = true;

@@ -26,10 +26,6 @@
       url = "github:kaylorben/nixcord";
     };
 
-    stylix = {
-      url = "github:danth/stylix";
-    };
-
     nvf = {
       url = "github:notashelf/nvf";
     };
