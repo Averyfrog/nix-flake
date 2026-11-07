@@ -17,8 +17,6 @@
         anomalocarisPackages
 
         inputs.home-manager.nixosModules.default
-        jovian.nixosModules.default
-        inputs.chaotic.nixosModules.default
 
         jovian
         hyprland
